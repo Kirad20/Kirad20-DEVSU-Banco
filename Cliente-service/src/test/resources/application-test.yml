@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: cliente-microservice
+  datasource:
+    url: localhost:3306/banco_db
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: false
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+#Tomcat Embedded Server Configuration
+server:
+  port: 8002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: localhost:8761/eureka

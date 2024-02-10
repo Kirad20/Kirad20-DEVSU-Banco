@@ -1,0 +1,1549 @@
+{
+	"info": {
+		"_postman_id": "e6876509-3b68-4c73-b0ad-3a7b891598b3",
+		"name": "Microservicios Banco DEVSU",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13402043"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "index",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7000/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"clientes"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": [
+						{
+							"name": "index",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:7000/clientes",
+									"host": [
+										"localhost"
+									],
+									"port": "7000",
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:18:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"rfc\": \"5679\",\n        \"nombre\": \"Marianela Montalvo\",\n        \"genero\": \"femenino\",\n        \"fechaNacimiento\": \"20/04/96\",\n        \"curp\": \"mosecer\",\n        \"direccion\": \"Amazonas y NNU\",\n        \"telefono\": \"097548965\",\n        \"id\": 113,\n        \"contrasenia\": \"5678\",\n        \"estado\": true\n    },\n    {\n        \"rfc\": \"234sss564w\",\n        \"nombre\": \"Jose Lema\",\n        \"genero\": \"masculino\",\n        \"fechaNacimiento\": \"20/04/96\",\n        \"curp\": \"moecer\",\n        \"direccion\": \"Otavalo sn y principal\",\n        \"telefono\": \"098254785\",\n        \"id\": 115,\n        \"contrasenia\": \"1234\",\n        \"estado\": true\n    },\n    {\n        \"rfc\": \"5678\",\n        \"nombre\": \"Juan Ososrio\",\n        \"genero\": \"masculino\",\n        \"fechaNacimiento\": \"20/04/96\",\n        \"curp\": \"mosecer\",\n        \"direccion\": \"13 junio y Rquinoccial\",\n        \"telefono\": \"098874587\",\n        \"id\": 116,\n        \"contrasenia\": \"5678\",\n        \"estado\": true\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clientes/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clientes",
+								""
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Post data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contrasenia\": \"5678\",\n    \"estado\": true,\n    \"rfc\": \"5679\",\n    \"nombre\": \"Marianela Montalvo\",\n    \"genero\": \"femenino\",\n    \"fechaNacimiento\": \"20/04/96\",\n    \"curp\": \"mosecer\",\n    \"direccion\": \"Amazonas y NNU\",\n    \"telefono\": \"097548965\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/clientes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clientes"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "Jose Lema",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contrasenia\": \"1234\",\n    \"estado\": true,\n    \"rfc\": \"234sss564w\",\n    \"nombre\": \"Jose Lema\",\n    \"genero\": \"masculino\",\n    \"fechaNacimiento\": \"20/04/96\",\n    \"curp\": \"moecer\",\n    \"direccion\": \"Otavalo sn y principal\",\n    \"telefono\": \"098254785\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/clientes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://cliente-microservice:8001/clientes/108"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 06:28:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"rfc\": \"234sss564w\",\n    \"nombre\": \"Jose Lema\",\n    \"genero\": \"masculino\",\n    \"fechaNacimiento\": \"20/04/96\",\n    \"curp\": \"moecer\",\n    \"direccion\": \"Otavalo sn y principal\",\n    \"telefono\": \"098254785\",\n    \"id\": 108,\n    \"contrasenia\": \"1234\",\n    \"estado\": true\n}"
+						},
+						{
+							"name": "Juan Osorio",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contrasenia\": \"5678\",\n    \"estado\": true,\n    \"rfc\": \"5678\",\n    \"nombre\": \"Juan Ososrio\",\n    \"genero\": \"masculino\",\n    \"fechaNacimiento\": \"20/04/96\",\n    \"curp\": \"mosecer\",\n    \"direccion\": \"13 junio y Rquinoccial\",\n    \"telefono\": \"098874587\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/clientes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://cliente-microservice:8001/clientes/112"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:14:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"rfc\": \"5678\",\n    \"nombre\": \"Juan Ososrio\",\n    \"genero\": \"masculino\",\n    \"fechaNacimiento\": \"20/04/96\",\n    \"curp\": \"mosecer\",\n    \"direccion\": \"13 junio y Rquinoccial\",\n    \"telefono\": \"098874587\",\n    \"id\": 112,\n    \"contrasenia\": \"5678\",\n    \"estado\": true\n}"
+						},
+						{
+							"name": "Marianela Montalvo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contrasenia\": \"5678\",\n    \"estado\": true,\n    \"rfc\": \"5679\",\n    \"nombre\": \"Marianela Montalvo\",\n    \"genero\": \"femenino\",\n    \"fechaNacimiento\": \"20/04/96\",\n    \"curp\": \"mosecer\",\n    \"direccion\": \"Amazonas y NNU\",\n    \"telefono\": \"097548965\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/clientes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"clientes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://cliente-microservice:8001/clientes/113"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:15:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"rfc\": \"5679\",\n    \"nombre\": \"Marianela Montalvo\",\n    \"genero\": \"femenino\",\n    \"fechaNacimiento\": \"20/04/96\",\n    \"curp\": \"mosecer\",\n    \"direccion\": \"Amazonas y NNU\",\n    \"telefono\": \"097548965\",\n    \"id\": 113,\n    \"contrasenia\": \"5678\",\n    \"estado\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Update data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contrasenia\": \"1234\",\n    \"estado\": true,\n    \"nombre\": \"Jose alfredo\",\n    \"genero\": \"masculino\",\n    \"fechaNacimiento\": \"20/04/96\",\n    \"curp\": \"346fssgg\",\n    \"direccion\": \"Otavalo sn y principal\",\n    \"telefono\": \"098254785\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/clientes/107",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clientes",
+								"107"
+							]
+						},
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/clientes/107",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clientes",
+								"107"
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				}
+			],
+			"description": "Microservicio de usuarios"
+		},
+		{
+			"name": "Cuentas",
+			"item": [
+				{
+					"name": "index",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cuentas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cuentas"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cuentas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cuentas"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Post data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numeroCuenta\": 585545,\n    \"saldo\": 1000,\n    \"estado\": true,\n    \"idCliente\": 115,\n    \"tipoCuenta\": \"Corriente\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8002/cuentas",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"cuentas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Jose Lema ahorro",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"numeroCuenta\": 478758,\n    \"saldo\": 2000,\n    \"estado\": true,\n    \"idCliente\": 115,\n    \"tipoCuenta\": \"Ahorros\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/cuentas",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"cuentas"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:8002/cuentas/478758"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:19:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"numeroCuenta\": 478758,\n    \"saldo\": 2000,\n    \"estado\": true,\n    \"tipoCuenta\": \"Ahorros\",\n    \"nombreCliente\": null,\n    \"idCliente\": 115\n}"
+						},
+						{
+							"name": "Marianela Corriente",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"numeroCuenta\": 225487,\n    \"saldo\": 100,\n    \"estado\": true,\n    \"idCliente\": 119,\n    \"tipoCuenta\": \"Corriente\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/cuentas",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"cuentas"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:8002/cuentas/225487"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:21:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"numeroCuenta\": 225487,\n    \"saldo\": 100,\n    \"estado\": true,\n    \"tipoCuenta\": \"Corriente\",\n    \"nombreCliente\": null,\n    \"idCliente\": 113\n}"
+						},
+						{
+							"name": "Juan Ososrio Ahorros",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"numeroCuenta\": 495878,\n    \"saldo\": 0,\n    \"estado\": true,\n    \"idCliente\": 118,\n    \"tipoCuenta\": \"Ahorros\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/cuentas",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"cuentas"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:8002/cuentas/495878"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:24:11 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"numeroCuenta\": 495878,\n    \"saldo\": 0,\n    \"estado\": true,\n    \"tipoCuenta\": \"Ahorros\",\n    \"nombreCliente\": null,\n    \"idCliente\": 116\n}"
+						},
+						{
+							"name": "Jose Lema Corriente",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"numeroCuenta\": 585545,\n    \"saldo\": 1000,\n    \"estado\": true,\n    \"idCliente\": 117,\n    \"tipoCuenta\": \"Corriente\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/cuentas",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"cuentas"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:8002/cuentas/585545"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:33:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"numeroCuenta\": 585545,\n    \"saldo\": 1000,\n    \"estado\": true,\n    \"tipoCuenta\": \"Corriente\",\n    \"nombreCliente\": null,\n    \"idCliente\": 117\n}"
+						},
+						{
+							"name": "Mariela ahorros",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"numeroCuenta\": 496825,\n    \"saldo\": 540,\n    \"estado\": true,\n    \"idCliente\": 119,\n    \"tipoCuenta\": \"Ahorros\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/cuentas",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"cuentas"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:8002/cuentas/496825"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:40:59 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"numeroCuenta\": 496825,\n    \"saldo\": 540,\n    \"estado\": true,\n    \"tipoCuenta\": \"Ahorros\",\n    \"nombreCliente\": null,\n    \"idCliente\": 113\n}"
+						}
+					]
+				},
+				{
+					"name": "Put data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numeroCuenta\": 4,\n    \"saldo\": 10000,\n    \"estado\": true,\n    \"idCliente\": 104,\n    \"nombreCliente\": \"daniel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cuentas/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cuentas",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cuentas/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cuentas",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Servicio de cuentas"
+		},
+		{
+			"name": "Movimientos",
+			"item": [
+				{
+					"name": "index",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/movimientos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movimientos"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Put data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"monto\": -2000,\n  \"numeroCuenta\": 123124\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/movimientos/106",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movimientos",
+								"106"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"monto\": -540,\n  \"numeroCuenta\": 496825\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/movimientos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movimientos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "movimiento 1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"monto\": -575,\n  \"numeroCuenta\": 478758\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/movimientos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"movimientos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:8002/movimientos/126"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:56:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 126,\n    \"monto\": -575,\n    \"saldo\": 2000,\n    \"tipoMovimiento\": \"RETIRO\",\n    \"fechaMovimiento\": \"2024-02-10T08:56:55.019+00:00\",\n    \"numeroCuenta\": 478758\n}"
+						},
+						{
+							"name": "movimiento 2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"monto\": 600,\n  \"numeroCuenta\": 225487\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/movimientos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"movimientos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:8002/movimientos/127"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:58:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 127,\n    \"monto\": 600,\n    \"saldo\": 100,\n    \"tipoMovimiento\": \"DEPOSITO\",\n    \"fechaMovimiento\": \"2024-02-10T08:58:22.411+00:00\",\n    \"numeroCuenta\": 225487\n}"
+						},
+						{
+							"name": "movimiento 3",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"monto\": 150,\n  \"numeroCuenta\": 495878\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/movimientos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"movimientos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:8002/movimientos/128"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:59:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 128,\n    \"monto\": 150,\n    \"saldo\": 0,\n    \"tipoMovimiento\": \"DEPOSITO\",\n    \"fechaMovimiento\": \"2024-02-10T08:59:03.490+00:00\",\n    \"numeroCuenta\": 495878\n}"
+						},
+						{
+							"name": "movimiento 4",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"monto\": -540,\n  \"numeroCuenta\": 496825\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/movimientos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"movimientos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Location",
+									"value": "http://localhost:8002/movimientos/129"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 08:59:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 129,\n    \"monto\": -540,\n    \"saldo\": 540,\n    \"tipoMovimiento\": \"RETIRO\",\n    \"fechaMovimiento\": \"2024-02-10T08:59:55.406+00:00\",\n    \"numeroCuenta\": 496825\n}"
+						}
+					]
+				},
+				{
+					"name": "Get data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/movimientos/106",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movimientos",
+								"106"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/movimientos/106",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movimientos",
+								"106"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Serivcio de usuarios"
+		},
+		{
+			"name": "Reportes",
+			"item": [
+				{
+					"name": "Get reporte doc",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reportes/doc?fechaInicio=2024-02-07&fechaFin=2024-02-09&numeroCliente=105",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reportes",
+								"doc"
+							],
+							"query": [
+								{
+									"key": "fechaInicio",
+									"value": "2024-02-07"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2024-02-09"
+								},
+								{
+									"key": "numeroCliente",
+									"value": "105"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Get reporte JSON",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reportes?fechaInicio=2024-02-10&fechaFin=2024-02-11&numeroCliente=117",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "fechaInicio",
+									"value": "2024-02-10"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2024-02-11"
+								},
+								{
+									"key": "numeroCliente",
+									"value": "117"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": [
+						{
+							"name": "Jose lema movimientos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/reportes?fechaInicio=2024-02-10&fechaFin=2024-02-11&numeroCliente=117",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"reportes"
+									],
+									"query": [
+										{
+											"key": "fechaInicio",
+											"value": "2024-02-10"
+										},
+										{
+											"key": "fechaFin",
+											"value": "2024-02-11"
+										},
+										{
+											"key": "numeroCliente",
+											"value": "117"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 10:39:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"cliente\": 117,\n    \"nombre\": \"Jose Lema\",\n    \"rfc\": \"234sss564w\",\n    \"genero\": \"masculino\",\n    \"fechaNacimiento\": \"20/04/96\",\n    \"curp\": \"moecer\",\n    \"direccion\": \"Otavalo sn y principal\",\n    \"telefono\": \"098254785\",\n    \"cuentas\": [\n        {\n            \"numeroCuenta\": 478758,\n            \"saldo\": 1425,\n            \"estado\": true,\n            \"tipoCuenta\": \"Ahorros\",\n            \"movimientos\": [\n                {\n                    \"id\": 130,\n                    \"monto\": -575,\n                    \"saldo\": 2000,\n                    \"tipoMovimiento\": \"RETIRO\",\n                    \"fechaMovimiento\": \"2024-02-10T10:35:17.735+00:00\",\n                    \"numeroCuenta\": 478758\n                }\n            ]\n        },\n        {\n            \"numeroCuenta\": 585545,\n            \"saldo\": 1000,\n            \"estado\": true,\n            \"tipoCuenta\": \"Corriente\",\n            \"movimientos\": []\n        }\n    ]\n}"
+						},
+						{
+							"name": "Mariela montalvo movimientos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/reportes?fechaInicio=2024-02-10&fechaFin=2024-02-11&numeroCliente=119",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"reportes"
+									],
+									"query": [
+										{
+											"key": "fechaInicio",
+											"value": "2024-02-10"
+										},
+										{
+											"key": "fechaFin",
+											"value": "2024-02-11"
+										},
+										{
+											"key": "numeroCliente",
+											"value": "119"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2024 10:40:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"cliente\": 119,\n    \"nombre\": \"Marianela Montalvo\",\n    \"rfc\": \"5679\",\n    \"genero\": \"femenino\",\n    \"fechaNacimiento\": \"20/04/96\",\n    \"curp\": \"mosecer\",\n    \"direccion\": \"Amazonas y NNU\",\n    \"telefono\": \"097548965\",\n    \"cuentas\": [\n        {\n            \"numeroCuenta\": 225487,\n            \"saldo\": 700,\n            \"estado\": true,\n            \"tipoCuenta\": \"Corriente\",\n            \"movimientos\": [\n                {\n                    \"id\": 131,\n                    \"monto\": 600,\n                    \"saldo\": 100,\n                    \"tipoMovimiento\": \"DEPOSITO\",\n                    \"fechaMovimiento\": \"2024-02-10T10:35:54.596+00:00\",\n                    \"numeroCuenta\": 225487\n                }\n            ]\n        },\n        {\n            \"numeroCuenta\": 496825,\n            \"saldo\": 0,\n            \"estado\": true,\n            \"tipoCuenta\": \"Ahorros\",\n            \"movimientos\": [\n                {\n                    \"id\": 133,\n                    \"monto\": -540,\n                    \"saldo\": 540,\n                    \"tipoMovimiento\": \"RETIRO\",\n                    \"fechaMovimiento\": \"2024-02-10T10:36:41.068+00:00\",\n                    \"numeroCuenta\": 496825\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "Servicio de reportes"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "localhost:7000"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: cliente-microservice
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: false
+  rabbitmq:
+    host: ${SPRING_RABBITMQ_HOST}
+    port: ${SPRING_RABBITMQ_PORT}
+    username: ${SPRING_RABBITMQ_USERNAME}
+    password: ${SPRING_RABBITMQ_PASSWORD}
+
+#Tomcat Embedded Server Configuration
+server:
+  port: ${SERVER_PORT}
+
+#Eureka Configuration Properties
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER}
+
+
+
